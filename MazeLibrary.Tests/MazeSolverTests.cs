@@ -6,9 +6,9 @@ namespace MazeLibrary.Tests
     [TestFixture]
     public class MazeSolverTests
     {
-        private readonly int[] startXs = { 1, 0, 3, 0 };
+        private readonly int[] startXs = { 3, 0, 1, 0 };
 
-        private readonly int[] startYs = { 0, 1, 5, 4 };
+        private readonly int[] startYs = { 5, 4, 0, 1 };
 
         private readonly int[][,] sourceData = new int[][,]
         {
@@ -59,7 +59,7 @@ namespace MazeLibrary.Tests
                 { -1,  0, -1, -1, -1, -1,  0, -1,  0, -1,  0, -1 },
                 { -1,  0,  0,  0,  0,  0,  0, -1,  0,  0,  0, -1 },
                 { -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1 }
-            }          
+            }
         };
 
         private readonly int[][,] result = new int[][,]
