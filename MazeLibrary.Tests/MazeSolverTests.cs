@@ -59,7 +59,7 @@ namespace MazeLibrary.Tests
                 { -1,  0, -1, -1, -1, -1,  0, -1,  0, -1,  0, -1 },
                 { -1,  0,  0,  0,  0,  0,  0, -1,  0,  0,  0, -1 },
                 { -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1 }
-            }
+            }          
         };
 
         private readonly int[][,] result = new int[][,]
@@ -89,12 +89,12 @@ namespace MazeLibrary.Tests
                 { -1,  3, -1,  0, -1, -1,  0,  0, -1, -1,  0, -1 },
                 { -1,  4, -1,  0,  0, -1,  0,  0,  0,  0,  0, -1 },
                 { -1,  5, -1, -1,  0, -1, -1, -1, -1, -1, -1, -1 },
-                { -1,  6, -1,  0,  0, -1,  0, -1, 23, 24, 25, -1 },
-                { -1,  7, -1,  0, -1, -1, 20, 21, 22, -1, 26, -1 },
-                { -1,  8, -1,  0,  0,  0, 19, -1, -1, -1, 27, -1 },
-                { -1,  9, -1,  0, -1,  0, 18, -1,  0, -1, 28, -1 },
-                { -1, 10, -1, -1, -1, -1, 17, -1,  0, -1, 29, -1 },
-                { -1, 11, 12, 13, 14, 15, 16, -1,  0,  0, 30, 31 },
+                { -1,  6, -1,  0,  0, -1,  0, -1, 25, 26, 27, -1 },
+                { -1,  7, -1,  0, -1, -1, 22, 23, 24, -1, 28, -1 },
+                { -1,  8, -1,  0,  0,  20, 21, -1, -1, -1, 29, -1 },
+                { -1,  9, -1,  0, -1,  19, 18, -1,  0, -1, 30, -1 },
+                { -1, 10, -1, -1, -1, -1, 17, -1,  0, -1, 31, -1 },
+                { -1, 11, 12, 13, 14, 15, 16, -1,  0,  0, 32, 33 },
                 { -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1 }
             },
             new int[,]
@@ -137,12 +137,64 @@ namespace MazeLibrary.Tests
 
                 if (!MatrixAreEquals(solver.MazeWithPass(), result[i]))
                 {
-                    //TODO
+                    Assert.False(true);
+                }
+                else
+                {
+                    Assert.True(true);
                 }
             }
         }
 
-        private static bool MatrixAreEquals(int[,] lhs, int[,] rhs) => throw new NotImplementedException();
+        [Test]
+        public void PassMaze1_SuccessfulTests()
+        {
+                MazeSolver solver = new MazeSolver(sourceData[0], startXs[0], startYs[0]);
+
+                solver.PassMaze();
+
+                if (!MatrixAreEquals(solver.MazeWithPass(), result[0]))
+                {
+                    Assert.False(true);
+                }
+                else
+                {
+                    Assert.True(true);
+                }
+        }
+
+        [Test]
+        public void PassMaze2_SuccessfulTests()
+        {
+            MazeSolver solver = new MazeSolver(sourceData[1], startXs[1], startYs[1]);
+
+            solver.PassMaze();
+
+            if (!MatrixAreEquals(solver.MazeWithPass(), result[1]))
+            {
+                Assert.False(true);
+            }
+            else
+            {
+                Assert.True(true);
+            }
+        }
+
+        private static bool MatrixAreEquals(int[,] lhs, int[,] rhs)
+        {
+            for (int i = 0; i < lhs.GetLength(0); i++)
+            {
+                for (int j = 0; j < lhs.GetLength(1); j++)
+                {
+                    if (lhs[i, j] != rhs[i, j])
+                    {
+                    return false;
+                    }
+                }
+            }
+
+            return true;
+        }
 
     }
 }
