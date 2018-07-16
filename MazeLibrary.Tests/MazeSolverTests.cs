@@ -99,15 +99,15 @@ namespace MazeLibrary.Tests
             },
             new int[,]
             {
-                { -1,  1, -1, -1, -1, -1, -1, -1, -1, 31, -1, -1 },
-                { -1,  2, -1,  0,  0,  0,  0,  0, -1, 30, 29, -1 },
-                { -1,  3, -1,  0, -1, -1,  0,  0, -1, -1, 28, -1 },
-                { -1,  4, -1,  0,  0, -1,  0,  0,  0,  0, 27, -1 },
-                { -1,  5, -1, -1,  0, -1, -1, -1, -1, -1, 26, -1 },
-                { -1,  6, -1,  0,  0, -1,  0, -1, 23, 24, 25, -1 },
-                { -1,  7, -1,  0, -1, -1, 20, 21, 22, -1,  0, -1 },
-                { -1,  8, -1,  0,  0,  0, 19, -1, -1, -1,  0, -1 },
-                { -1,  9, -1,  0, -1,  0, 18, -1,  0, -1,  0, -1 },
+                { -1,  1, -1, -1, -1, -1, -1, -1, -1, 33, -1, -1 },
+                { -1,  2, -1,  0,  0,  0,  0,  0, -1, 32, 31, -1 },
+                { -1,  3, -1,  0, -1, -1,  0,  0, -1, -1, 30, -1 },
+                { -1,  4, -1,  0,  0, -1,  0,  0,  0,  0, 29, -1 },
+                { -1,  5, -1, -1,  0, -1, -1, -1, -1, -1, 28, -1 },
+                { -1,  6, -1,  0,  0, -1,  0, -1, 25, 26, 27, -1 },
+                { -1,  7, -1,  0, -1, -1, 22, 23, 24, -1,  0, -1 },
+                { -1,  8, -1,  0,  0,  20, 21, -1, -1, -1,  0, -1 },
+                { -1,  9, -1,  0, -1,  19, 18, -1,  0, -1,  0, -1 },
                 { -1, 10, -1, -1, -1, -1, 17, -1,  0, -1,  0, -1 },
                 { -1, 11, 12, 13, 14, 15, 16, -1,  0,  0,  0, -1 },
                 { -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1 }
@@ -143,40 +143,6 @@ namespace MazeLibrary.Tests
                 {
                     Assert.True(true);
                 }
-            }
-        }
-
-        [Test]
-        public void PassMaze1_SuccessfulTests()
-        {
-                MazeSolver solver = new MazeSolver(sourceData[0], startXs[0], startYs[0]);
-
-                solver.PassMaze();
-
-                if (!MatrixAreEquals(solver.MazeWithPass(), result[0]))
-                {
-                    Assert.False(true);
-                }
-                else
-                {
-                    Assert.True(true);
-                }
-        }
-
-        [Test]
-        public void PassMaze2_SuccessfulTests()
-        {
-            MazeSolver solver = new MazeSolver(sourceData[1], startXs[1], startYs[1]);
-
-            solver.PassMaze();
-
-            if (!MatrixAreEquals(solver.MazeWithPass(), result[1]))
-            {
-                Assert.False(true);
-            }
-            else
-            {
-                Assert.True(true);
             }
         }
 
